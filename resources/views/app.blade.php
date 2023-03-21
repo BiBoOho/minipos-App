@@ -48,6 +48,7 @@
 <body class="main-body app sidebar-mini">
 
 <div id="app"></div>
+<!-- <h1>Test</h1> -->
 
 		<!-- Loader -->
 		<div id="global-loader">

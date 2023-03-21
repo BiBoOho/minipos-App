@@ -1,13 +1,12 @@
 <template>
     <div>
-        <h1>Vue app</h1>
-        <router-view></router-view>
+        <h1>Transection page</h1>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'MiniposAppApp',
+    name: 'MiniposAppTransection',
 
     data() {
         return {

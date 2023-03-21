@@ -1,13 +1,12 @@
 <template>
     <div>
-        <h1>Vue app</h1>
-        <router-view></router-view>
+       <h1>Store page</h1>
     </div>
 </template>
 
 <script>
 export default {
-    name: 'MiniposAppApp',
+    name: 'MiniposAppStore',
 
     data() {
         return {
