@@ -48,13 +48,16 @@
 <body class="main-body app sidebar-mini">
 
 <div id="app"></div>
-<!-- <h1>Test</h1> -->
+<!-- <h1>Vue app</h1> -->
 
 		<!-- Loader -->
 		<div id="global-loader">
 			<img src="assets/img/loader.svg" class="loader-img" alt="Loader">
 		</div>
 		<!-- /Loader -->
+
+		<!-- Page -->
+
 
 		
 
