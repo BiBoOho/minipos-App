@@ -3,8 +3,12 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and
-                    demoralized
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>ລາຍງານ</p>
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>
