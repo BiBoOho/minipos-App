@@ -144,24 +144,24 @@
 											</div>
 											<div class="form-group">
 												<label for="qty">ຈຳນວນ</label>
-												<input type="text" class="form-control" v-model="FormProduct.qty" id="qty"
-													placeholder="...">
+												<cleave :options="options" class="form-control" v-model="FormProduct.qty" id="qty"
+													placeholder="..."  />
 											</div>
 										</div>
 
 										<div class="col-md-6">
 											<div class="form-group">
 												<label for="price-buy">ລາຄາຊື້</label>
-												<input type="text" class="form-control" v-model="FormProduct.price_buy"
-													id="price-buy" placeholder="...">
+												<cleave :options="options" class="form-control" v-model="FormProduct.price_buy"
+													id="price-buy" placeholder="..." />
 											</div>
 										</div>
 
 										<div class="col-md-6">
 											<div class="form-group">
 												<label for="price-sell">ລາຄາຂາຍ</label>
-												<input type="text" class="form-control" v-model="FormProduct.price_sell"
-													id="price-sell" placeholder="...">
+												<cleave :options="options" class="form-control" v-model="FormProduct.price_sell"
+													id="price-sell" placeholder="..." />
 											</div>
 										</div>
 									</div>
@@ -187,7 +187,7 @@
 										<th scope="row">{{ list.id }}</th>
 										<td> {{ list.name }} </td>
 										<td>{{ list.qty }}</td>
-										<td>{{ list.price_buy }}</td>
+										<td>{{ formatPrice(list.price_buy) }}</td>
 										<td class="btn-icon-list"><button class="btn btn-success btn-icon"
 												@click="edit_product(list.id)"><i class="fa fa-edit"></i></button>
 											<button class="btn btn-danger btn-icon" @click="del_product(list.id)"><i
@@ -221,7 +221,17 @@ export default {
 				qty: '',
 				price_buy: '',
 				price_sell: ''
-			}
+			},
+			options: {
+				//    prefix: '$',
+                   numeral: true,
+				   numeralPositiveOnly: true,
+				   noImmediatePrefix: true,
+				   numeralIntegerScale: 10,
+				   numeralDecimalScale: 2,
+				   numeralDecimalMark: '.',
+				   delimiter: ','
+                }
 		};
 	},
 
@@ -230,7 +240,10 @@ export default {
 	},
 
 	methods: {
-
+		formatPrice(value){
+			let val = (value / 1).toFixed(0).replace(",",".");
+			return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+		},
 		add_store() {
 			this.FormShow = true,
 				this.FormType = true;
