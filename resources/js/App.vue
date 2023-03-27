@@ -4,7 +4,7 @@
 
             <!-- main-sidebar -->
             <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
-            <aside class="app-sidebar sidebar-scroll">
+            <aside class="app-sidebar sidebar-scroll" v-if="isLoggedin">
                 <div class="main-sidebar-header active">
                     <a class="desktop-logo logo-light active" href="index.html"><img src="assets/img/brand/logo.png"
                             class="main-logo" alt="logo"></a>
@@ -73,10 +73,10 @@
             <!-- main-sidebar -->
 
             <!-- main-content -->
-            <div class="main-content app-content">
+            <div :class="appclass">
 
                 <!-- main-header -->
-                <div class="main-header sticky side-header nav nav-item">
+                <div class="main-header sticky side-header nav nav-item" v-if="isLoggedin">
                     <div class="container-fluid">
                         <div class="main-header-left ">
                             <div class="responsive-logo">
@@ -419,35 +419,6 @@
 
                 <!-- container -->
                 <div class="container-fluid">
-
-                    <!-- breadcrumb -->
-                    <div class="breadcrumb-header justify-content-between">
-                        <div class="left-content">
-                            <div>
-                                <h2 class="main-content-title tx-24 mg-b-1 mg-b-lg-1">ຍິນດີຕ້ອນຮັບ!</h2>
-                                <p class="mg-b-0">Sales monitoring dashboard template.</p>
-                            </div>
-                        </div>
-                        <div class="main-dashboard-header-right">
-                            <div>
-                                <label class="tx-13">Customer Ratings</label>
-                                <div class="main-star">
-                                    <i class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i
-                                        class="typcn typcn-star active"></i> <i class="typcn typcn-star active"></i> <i
-                                        class="typcn typcn-star"></i> <span>(14,873)</span>
-                                </div>
-                            </div>
-                            <div>
-                                <label class="tx-13">Online Sales</label>
-                                <h5>500000</h5>
-                            </div>
-                            <div>
-                                <label class="tx-13">Offline Sales</label>
-                                <h5>100000</h5>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- breadcrumb -->
 
                     <router-view></router-view>
 
@@ -1170,7 +1141,7 @@
         </div><!-- modal -->
 
         <!-- Footer opened -->
-        <div class="main-footer ht-40">
+        <div class="main-footer ht-40" v-if="isLoggedin">
             <div class="container-fluid pd-t-0-f ht-100p">
                 <span>Copyright © 2021 <a href="#">Valex</a>. Designed by <a href="https://www.spruko.com/">Spruko</a>
                     All rights reserved.</span>
@@ -1187,7 +1158,8 @@ export default {
 
     data() {
         return {
-
+            isLoggedin : false,
+            appclass:''
         };
     },
 
@@ -1198,6 +1170,16 @@ export default {
     methods: {
 
     },
+    created(){
+        console.log(window.Laravel.isLoggedin);
+        if(window.Laravel.isLoggedin){
+            this.isLoggedin = true;
+            this.appclass = "main-content app-content";
+        } else {
+            this.isLoggedin = false;
+            this.appclass = "";
+        }
+    }
 };
 </script>
 

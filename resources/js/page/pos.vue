@@ -126,6 +126,14 @@ export default {
     methods: {
 
     },
+
+    beforeRouteEnter(to, from, next) {
+				// window.Laravel.urlpath = to.name
+			if(!window.Laravel.isLoggedin) {
+				window,location.href = "/login";
+			}
+			next();
+		},
 };
 </script>
 

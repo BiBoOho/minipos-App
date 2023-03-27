@@ -10,6 +10,11 @@ import Home from "../page/home.vue";
 
 export const routers = [
     {
+        name:"login1",
+        path:"/",
+        component: Login,
+    },
+    {
         name:"login",
         path:"/login",
         component: Login,
